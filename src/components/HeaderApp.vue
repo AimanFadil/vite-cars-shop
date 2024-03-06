@@ -16,20 +16,21 @@ export default {
               <div class="row d-flex justify-content-between">
                 <img src="../assets/logo-png.png" alt="" class="size_">
                   <ul class="list-unstyled list-inline w-50 m-0 d-flex justify-content-end ">
-                      <li class="list-inline-item align-self-center gold_color mx-3">
+                      <li class="list-inline-item align-self-center  mx-3">
                         <strong>
-<!--                             <router-link :to="/"
-                            class="link-offset-2 link-underline link-underline-opacity-0   change-color">
+
+                          <router-link :to="{name: `home`}"
+                            class=" gold_color link-offset-2 link-underline link-underline-opacity-0">
+                                <i class="fa-solid fa-house" ></i>
                                 Home
-                            </router-link> -->
-                            <i class="fa-solid fa-house" ></i>
-                            Home
+                            </router-link>
+
                         </strong>
                       </li>
                       <li class="list-inline-item align-self-center gold_color mx-3">
                         <strong>
-<!--                             <router-link :to="/"
-                            class="link-offset-2 link-underline link-underline-opacity-0   change-color">
+<!--                             <router-link :to="{name:}"
+                            class="gold_color  link-offset-2 link-underline link-underline-opacity-0">
                                  Cars
                             </router-link> -->
                             <i class="fa-solid fa-car" ></i>
@@ -38,12 +39,11 @@ export default {
                       </li>
                       <li class="list-inline-item align-self-center gold_color mx-3">
                         <strong>
-<!--                             <router-link :to="/"
-                            class="link-offset-2 link-underline link-underline-opacity-0   change-color">
+                           <router-link :to="{name: `housecars` }"
+                            class="gold_color link-offset-2 link-underline link-underline-opacity-0 ">
+                                <i class="fa-solid fa-industry"></i>
                                 House Cars
-                            </router-link> -->
-                            <i class="fa-solid fa-industry"></i>
-                            House Cars
+                            </router-link> 
                         </strong>
                       </li>
                   </ul>
@@ -70,6 +70,7 @@ export default {
         &:hover{
             color: rgb(249, 203, 115);
         }
+
     }
 }
 </style>
