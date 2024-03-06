@@ -1,5 +1,8 @@
 <script>
 export default {
+    props: {
+        car: Object
+    },
     
 }
 </script>
@@ -8,8 +11,8 @@ export default {
         <div class="card my-2" style="width: 18rem;">
             <!-- <img class="card-img-top" :src="cars.img != null ? `${store.baseUrl}/storage/${project.logo}` : `${store.baseUrl}/placeholder/logo.jpeg`" alt="Card image cap"> -->
             <div class="card-body">
-                <h4> il nome </h4>
-                <!-- <p class="card-text">{{cars.description.substr(0, 50) }}...</p> -->
+                <h4> {{cars.name}} </h4>
+                <p class="card-text">{{cars.description.substr(0, 50) }}...</p> 
             </div>
 
         </div>
