@@ -13,7 +13,7 @@ export default {
 <template lang="">
     <div>
         <span class="loader">
-            <span class="loader-text">
+            <span class="loader-text fw-bold">
                 loading...
             </span>
         </span>
@@ -22,9 +22,12 @@ export default {
 
 <style lang="scss" scoped>
 .loader {
-    position: relative;
+    position: absolute;
     width: 130px;
     height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-repeat: no-repeat;
     background-image: linear-gradient(#0277bd, #0277bd),
         linear-gradient(#29b6f6, #4fc3f7),
