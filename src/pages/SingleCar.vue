@@ -12,7 +12,8 @@ import axios from 'axios';
             }
         },
         created(){
-            this.GetCarData()
+            this.GetCarData(),
+            this.GetOptional()
         },
         methods: {
             GetCarData() {
@@ -23,18 +24,22 @@ import axios from 'axios';
             },
             GetOptional() {
                 axios.get(`${this.store.Url}api/optional`).then((response) => {
-                    this.optional = response.data.results;
+                    this.optionals = response.data.results;
+                    console.log(this.optionals)
                     
                 })
             },
             TotalPrice() {
-
-                let optionals = document.querySelector('.optional').checked;
+                let optionals_selected = document.querySelectorAll('.optional:checked');
                 let sum = 0;
-                for (let i = 0; i < optionals.length; i++ ) {
-                    sum += optionals[i];
+                for (let i = 0; i < optionals_selected.length; i++ ) {
+                    let price_optional = 0
+                    price_optional = parseInt(optionals_selected[i].value)
+                    console.log(price_optional)
+                    sum += price_optional;
                 }
-                let total_price = car.prezzo + sum
+                let total_price = parseInt(this.car.prezzo + sum);
+                total_price = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(total_price)
                 return total_price
             }
         }
@@ -79,12 +84,11 @@ import axios from 'axios';
                             <h3>CILINDRATA: {{ car.cilindrata }}</h3>
                         </li>
                     </ul>
-                        <div class="form-check form-check-inline" v-for="optional, index in optionals" :key="index">
-                            <input class="form-check-input optional" type="checkbox" id="inlineCheckbox1" :value="{{ optional.prezzo }}">
-                            <label class="form-check-label" for="inlineCheckbox1">{{ optional.name }}</label>
-                        </div>
-                        <button @click="!this.show_price">Calcola prezzo</button>
-                    </form>
+                    <div class="form-check form-check-inline" v-for="optional, index in optionals" :key="index">
+                        <input class="form-check-input optional" type="checkbox" id="inlineCheckbox1" :value= 'optional.prezzo' >
+                        <label class="form-check-label" for="inlineCheckbox1">{{ optional.name }}</label>
+                    </div>
+                    <button @click="this.show_price = !this.show_price">Calcola prezzo</button>
                     <div v-if="this.show_price">PREZZO TOTALE: {{ TotalPrice() }}</div>
                 </div>
             </div>
