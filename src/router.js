@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import HomeApp from './pages/HomeApp.vue';
+
 
 
 
@@ -6,11 +8,11 @@ import { createRouter, createWebHistory } from 'vue-router';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        /* {
+        {
             path: '/',
-            name: '',
-            component: ,
-        }, */
+            name: 'home',
+            component: HomeApp,
+        },
 
     ]
 });
