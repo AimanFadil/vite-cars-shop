@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeApp from './pages/HomeApp.vue';
-
+import NotFoundApp from './pages/NotFoundApp.vue'
 
 
 
@@ -13,6 +13,11 @@ const router = createRouter({
             name: 'home',
             component: HomeApp,
         },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'not-found',
+            component: NotFoundApp
+        }
 
     ]
 });
