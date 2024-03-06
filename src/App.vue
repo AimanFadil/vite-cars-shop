@@ -1,14 +1,17 @@
-<script>
+<script> 
+import HeaderApp from './components/HeaderApp.vue'; 
 export default {
   components: {
-    
+   HeaderApp
+
   },
 }
 </script>
 <template lang="">
-  <div>
-    <router-view></router-view>
-  </div>
+<div>
+  <HeaderApp/>
+  <router-view></router-view>
+</div>
 </template>
 
 <style lang="scss" >
