@@ -1,9 +1,29 @@
 <script>
-import carCard from './components/CarCard.vue';
+import CarCard from '../components/CarCard.vue';
+import {store} from '../store.js';
+import axios from 'axios';
+
     export default {
         components:{
-        carCard,
+        CarCard,
     }, 
+    data() {
+        return {
+            store,
+            cars: [],
+        }
+    },
+    created(){
+        this.getcar()
+    },
+    methods: {
+        getcar() {
+            axios.get(`${this.store.Url}api/car`).then((response) => {
+                this.cars = response.data.results;
+                
+            })
+        }
+    }
     }
 </script>
 <template lang="">
@@ -15,7 +35,7 @@ import carCard from './components/CarCard.vue';
                 </div>
             </div>
             <div class='row'>
-                <CarCard />
+                <CarCard v-for="car, index in cars" :key="index" :car="car"/>
             </div>
         </div>
     </div>
