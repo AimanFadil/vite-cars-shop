@@ -1,11 +1,11 @@
 <script>
-import carCard from './components/CarCard.vue';
+import CarCard from '../components/CarCard.vue';
 import {store} from '../store.js';
 import axios from 'axios';
 
     export default {
         components:{
-        carCard,
+        CarCard,
     }, 
     data() {
         return {
@@ -18,7 +18,7 @@ import axios from 'axios';
     },
     methods: {
         getcar() {
-            axios.get(`${this.store.Url}/api/car`).then((response) => {
+            axios.get(`${this.store.Url}api/car`).then((response) => {
                 this.cars = response.data.results;
                 
             })
