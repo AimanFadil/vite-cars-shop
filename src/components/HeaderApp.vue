@@ -1,12 +1,22 @@
 
 <script>
 import {store} from '../store.js';
+import axios from 'axios';
 export default {
   name: 'HeaderApp',
   data(){
         return{
             store,
         }
+    },
+    created() {
+        this.getHouseCars();
+    }, 
+    methods: {
+        getHouseCars(){
+            axios.get(`${this.store.Url}api/carhouse`).then((response)=>{
+                this.store.houseCars=response.data.results; })
+        }   
     }, 
 }
 </script>
@@ -45,6 +55,18 @@ export default {
                             </router-link> 
                         </strong>
                       </li>
+                      <li class="d-flex">
+                        <div class="btn-group ">
+                          <div class=" align-self-center dropdown-toggle gold_color" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                            <strong>Filtra per Marca</strong> 
+                          </div>
+                          <ul class="dropdown-menu bg-black" aria-labelledby="defaultDropdown">
+                            <li v-for="CarHouse, index in store.houseCars" :key="index">
+                              <router-link :to="{ name: 'housecars-car', params: {id: CarHouse.id} }" class="dropdown-item gold_color hover_bg">{{CarHouse.nome}}</router-link>
+                            </li>     
+                          </ul>
+                        </div>
+                      </li> 
                   </ul>
               </div>  
           </div>
@@ -61,7 +83,7 @@ export default {
   background-color: rgb(0, 0, 0); /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, black 20px , rgb(46, 46, 46) 260px, rgb(82, 82, 82) );
     .size_{
-        width: 200px; ;  
+        width: 200px;  
     }
     .gold_color{
         color:rgb( 173,134,71) ;
@@ -70,6 +92,12 @@ export default {
             color: rgb(249, 203, 115);
         }
 
+    }
+    .hover_bg{
+
+      &:hover{
+        background-color: black;
+      }
     }
 }
 </style>
