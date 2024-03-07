@@ -29,15 +29,8 @@ import axios from 'axios';
 </script>
 <template lang="">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="text-center my-3">
-                    Le nostre auto
-                </div>
-            </div>
-            <div class='row'>
-                <CarCard v-for="car, index in cars" :key="index" :car="car"/>
-            </div>
+        <div class='row'>
+            <CarCard v-for="car, index in cars" :key="index" :car="car"/>
         </div>
     </div>
 </template>

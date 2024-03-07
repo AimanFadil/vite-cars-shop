@@ -23,7 +23,10 @@ import axios from 'axios';
     }
 </script>
 <template lang="">
-    <div class="my-5">
+    <div class="cont">
+        <img src="https://static.vecteezy.com/ti/vettori-gratis/p1/2048582-disegno-di-un-auto-argento-su-sfondo-nero-vettoriale.jpg" alt="">
+    </div>
+    <!-- <div class="my-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -64,8 +67,15 @@ import axios from 'axios';
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 <style lang="scss" scoped>
+.cont{
+    img{
+        width: 100%;
+        height: 100vh;
+        
+    }
+}
     
 </style>
