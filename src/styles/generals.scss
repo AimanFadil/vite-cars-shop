@@ -13,10 +13,14 @@ body {
 }
 
 .color_black {
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(49, 49, 49);
     color: white;
 }
 
 .color_gold {
     color: rgb(173, 134, 71);
+
+    &:hover {
+        color: rgb(249, 203, 115);
+    }
 }

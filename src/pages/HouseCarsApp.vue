@@ -11,24 +11,15 @@ components: {
   data(){
         return{
             store,
-            houseCars:[],
         }
     },
-    created() {
-        this.getHouseCars();
-    }, 
-    methods: {
-        getHouseCars(){
-            axios.get(`${this.store.Url}api/carhouse`).then((response)=>{
-                this.houseCars=response.data.results; })
-        }   
-    },
+    
 }
 </script>
 <template lang="">
 <div class="container">
     <div class="row">
-        <HouseCarCard v-for="CarHouse, index in houseCars" :key="index" :CarHouse="CarHouse"/>
+        <HouseCarCard v-for="CarHouse, index in store.houseCars" :key="index" :CarHouse="CarHouse"/>
     </div>
 </div>
 </template>
