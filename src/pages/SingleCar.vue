@@ -46,8 +46,42 @@ import axios from 'axios';
     }
 </script>
 <template lang="">
-    <div class="cont">
+   <!--  <div class="cont">
         <img src="https://static.vecteezy.com/ti/vettori-gratis/p1/2048582-disegno-di-un-auto-argento-su-sfondo-nero-vettoriale.jpg" alt="">
+    </div> -->
+    <div class="body">
+
+        <div class="container">
+            <div class="row d-flex">
+                <div class="content">
+                    <div class="card black text-white" style="display: contents;">
+                        <img src="https://www.mercedes-benz.it/content/italy/it/passengercars/models/coupe/amg-gt-c192/overview/_jcr_content/root/responsivegrid/simple_stage_copy_co.component.damq1.3392150797189.jpg/mercedes-amg-gt-c192-stage-3840x3840-07-2023.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title yellowW">{{car.modello}}</h5>
+                            <p class="card-text yellow">Descrizione: <span class="text-white">{{car.descrizione}}</span></p>
+                            <p class="card-text yellow">Prezzo: <span class="text-white">{{car.prezzo}} €</span></p>
+                            <p class="card-text yellow">Alimentazione: <span class="text-white">{{car.alimentazione}}</span></p> 
+                            <p class="card-text yellow">Anno: <span class="text-white">{{car.anno}}</span></p>
+                            <p class="card-text yellow">Numero telaio: <span class="text-white">{{car.numero_telaio}}</span></p>
+                            <p class="card-text yellow">Porte: <span class="text-white">{{car.porte}}</span></p>
+                            <p class="card-text yellow">Carrozzeria: <span class="text-white">{{car.carrozzeria}}</span></p>
+                            <p class="card-text yellow">Cavalli: <span class="text-white">{{car.cavalli}}</span></p>
+                            <p class="card-text yellow">Cilindrata: <span class="text-white">{{car.cilindrata}}</span></p>
+                            <p class="card-text yellow">Optionals:</p>
+                            <div class="form-check form-check-inline" v-for="optional, index in optionals" :key="index">
+                                <input class="form-check-input optional" type="checkbox" id="inlineCheckbox1" :value= 'optional.prezzo' >
+                                <label class="form-check-label" for="inlineCheckbox1">{{ optional.name }}</label>
+                            </div>
+                            <div class="py-3">
+                                <button @click="this.show_price = !this.show_price"  class='btn bg-yellow text-white me-2'>Calcola prezzo</button>
+                                <span v-if="this.show_price" class="yellow">PREZZO TOTALE: {{ TotalPrice() }}</span>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- <div class="my-5">
         <div class="container">
@@ -99,12 +133,43 @@ import axios from 'axios';
     </div> -->
 </template>
 <style lang="scss" scoped>
-.cont{
+
+.body{
+    background-image: url(https://cbx-prod.b-cdn.net/COLOURBOX58821536.jpg?width=800&height=800&quality=90);
+    height: calc(100vh - 74px);
+}
+
+
+    
+.content{
+    border: 10px solid rgb(249, 203, 115);
+    display: flex;
+    padding: 30px;
+    margin: 30px;
+    background-color: rgb(48, 46, 46);
+    border-radius: 20px;
+
     img{
-        width: 100%;
-        height: 100vh;
-        
+        border-radius: 10px;
+        width: 500px;
     }
 }
+.yellowW{
+    color:rgb(249, 203, 115);
+
+}
+.yellow{
+    color:rgb( 173,134,71);
     
+}
+.bg-yellow{
+    
+    background-color: rgb( 173,134,71);
+}
+.black{
+    background-image: linear-gradient(to right, rgb(36, 35, 35) 20px , rgb(63, 61, 61) 260px, rgb(83, 80, 80) );
+}
+.decoration-none{
+    text-decoration: none;
+}
 </style>
