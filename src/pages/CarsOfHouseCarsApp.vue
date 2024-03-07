@@ -28,13 +28,6 @@ export default {
                  store.loading=false
             })
         },
-        getCars(){
-                axios.get(`${this.store.Url}api/car/carhouse/${this.$route.params.id}`).then((response)=>{
-                 this.carsOfHouse=response.data.results
-                 this.arsOfHouse=[];
-                 store.loading=false
-            }) 
-            }
     },
     
 }
@@ -46,7 +39,7 @@ export default {
             <div v-else> 
                 <div class="container">
                     <div class='row'>
-                        <div class="col-12 d-flex justify-content-center transparent_" @click="getCars()"> 
+                        <div class="col-12 d-flex justify-content-center transparent_" @click="getCarsOfHouse()"> 
                             <span class="badge rounded-pill hover_color m-2 p-3 " v-for="CarHouse, index in store.houseCars" :key="index">
                             <router-link :to="{ name: 'housecars-car', params: {id: CarHouse.id} }" class="dropdown-item gold_color hover_bg"> <strong>{{CarHouse.nome}}</strong></router-link>
                             </span>
