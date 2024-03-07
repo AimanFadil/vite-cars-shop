@@ -1,23 +1,24 @@
 <script>
 import CarCard from '../components/CarCard.vue';
 import AppLoader from '../components/AppLoader.vue';
-import {store} from '../store.js';
+import { store } from '../store.js';
 import axios from 'axios';
 
-    export default {
-        name: 'AppCars',
-        components:{
+export default {
+    name: 'AppCars',
+    components: {
         CarCard,
         AppLoader
-    }, 
+    },
     data() {
         return {
             store,
             cars: [],
         }
     },
-    created(){
-        this.getcar()
+    created() {
+        this.getcar();
+
     },
     methods: {
         getcar() {
@@ -27,10 +28,10 @@ import axios from 'axios';
             })
         }
     }
-    }
+}
 </script>
-<template lang="">
 
+<template lang="">
     <AppLoader v-if="store.loading"/>
     <div v-else>
         <div class="container">
@@ -40,6 +41,5 @@ import axios from 'axios';
         </div>
     </div>
 </template>
-<style lang="scss" scoped>
-    
-</style>
+
+<style lang="scss" scoped></style>
