@@ -44,7 +44,10 @@ export default {
                             <router-link :to="{ name: 'housecars-car', params: {id: CarHouse.id} }" class="dropdown-item gold_color hover_bg"> <strong>{{CarHouse.nome}}</strong></router-link>
                             </span>
                         </div>
-                        <CarCard v-for="car, index in carsOfHouse" :key="index" :car="car"/>
+                        <div class="d-flex flex-wrap">
+                            <CarCard v-for="car, index in carsOfHouse" :key="index" :car="car"/>
+                        </div>
+                        
                     </div>
                 </div>
             </div> 
