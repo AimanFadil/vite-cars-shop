@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template lang="">
-    <div>
+    <div class="sizing">
         <span class="loader">
             <span class="loader-text fw-bold">
                 loading...
@@ -21,6 +21,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.sizing{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}
 .loader {
     position: absolute;
     width: 130px;
@@ -101,4 +106,5 @@ export default {
         opacity: 0;
     }
 }
+
 </style>

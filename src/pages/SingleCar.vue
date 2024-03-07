@@ -49,13 +49,12 @@ import axios from 'axios';
    <!--  <div class="cont">
         <img src="https://static.vecteezy.com/ti/vettori-gratis/p1/2048582-disegno-di-un-auto-argento-su-sfondo-nero-vettoriale.jpg" alt="">
     </div> -->
-    <div class="body">
 
-        <div class="container">
+        <div class="container" v-if="car!=null">
             <div class="row d-flex">
                 <div class="content">
                     <div class="card black text-white" style="display: contents;">
-                        <img src="https://www.mercedes-benz.it/content/italy/it/passengercars/models/coupe/amg-gt-c192/overview/_jcr_content/root/responsivegrid/simple_stage_copy_co.component.damq1.3392150797189.jpg/mercedes-amg-gt-c192-stage-3840x3840-07-2023.jpg" class="card-img-top" alt="...">
+                        <img src="https://www.pollinauto.it/wp-content/uploads/2022/03/Immagine-Auto-in-arrivo.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title yellowW">{{car.modello}}</h5>
                             <p class="card-text yellow">Descrizione: <span class="text-white">{{car.descrizione}}</span></p>
@@ -82,7 +81,6 @@ import axios from 'axios';
                 </div>
             </div>
         </div>
-    </div>
     <!-- <div class="my-5">
         <div class="container">
             <div class="row">
@@ -133,13 +131,6 @@ import axios from 'axios';
     </div> -->
 </template>
 <style lang="scss" scoped>
-
-.body{
-    background-image: url(https://cbx-prod.b-cdn.net/COLOURBOX58821536.jpg?width=800&height=800&quality=90);
-    height: calc(100vh - 74px);
-}
-
-
     
 .content{
     border: 10px solid rgb(249, 203, 115);
@@ -152,6 +143,7 @@ import axios from 'axios';
     img{
         border-radius: 10px;
         width: 500px;
+        object-fit: cover;
     }
 }
 .yellowW{
