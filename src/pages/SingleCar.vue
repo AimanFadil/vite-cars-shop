@@ -58,7 +58,7 @@ import axios from 'axios';
                         <div class="card-body">
                             <h5 class="card-title yellowW">{{car.modello}}</h5>
                             <p class="card-text yellow">Descrizione: <span class="text-white">{{car.descrizione}}</span></p>
-                            <p class="card-text yellow">Prezzo: <span class="text-white">{{car.prezzo}} €</span></p>
+                            <p class="card-text yellow">Prezzo: <span class="text-white">{{new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(car.prezzo)}}</span></p>
                             <p class="card-text yellow">Alimentazione: <span class="text-white">{{car.alimentazione}}</span></p> 
                             <p class="card-text yellow">Anno: <span class="text-white">{{car.anno}}</span></p>
                             <p class="card-text yellow">Numero telaio: <span class="text-white">{{car.numero_telaio}}</span></p>
@@ -69,7 +69,7 @@ import axios from 'axios';
                             <p class="card-text yellow">Optionals:</p>
                             <div class="form-check form-check-inline" v-for="optional, index in optionals" :key="index">
                                 <input class="form-check-input optional" type="checkbox" id="inlineCheckbox1" :value= 'optional.prezzo' >
-                                <label class="form-check-label" for="inlineCheckbox1">{{ optional.name }}</label>
+                                <label class="form-check-label" for="inlineCheckbox1">{{ optional.name }}  €{{ optional.prezzo }}</label>
                             </div>
                             <div class="py-3">
                                 <button @click="this.show_price = !this.show_price"  class='btn bg-yellow text-white me-2'>Calcola prezzo</button>
