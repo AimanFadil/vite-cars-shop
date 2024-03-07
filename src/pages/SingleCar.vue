@@ -46,10 +46,6 @@ import axios from 'axios';
     }
 </script>
 <template lang="">
-   <!--  <div class="cont">
-        <img src="https://static.vecteezy.com/ti/vettori-gratis/p1/2048582-disegno-di-un-auto-argento-su-sfondo-nero-vettoriale.jpg" alt="">
-    </div> -->
-
         <div class="container" v-if="car!=null">
             <div class="row d-flex">
                 <div class="content">
@@ -67,10 +63,11 @@ import axios from 'axios';
                             <p class="card-text yellow">Cavalli: <span class="text-white">{{car.cavalli}}</span></p>
                             <p class="card-text yellow">Cilindrata: <span class="text-white">{{car.cilindrata}}</span></p>
                             <p class="card-text yellow">Optionals:</p>
-                            <div class="form-check form-check-inline" v-for="optional, index in optionals" :key="index">
-                                <input class="form-check-input optional" type="checkbox" id="inlineCheckbox1" :value= 'optional.prezzo' >
+                            <div class="form-check form-check-inline bg-yellowW bordi" v-for="optional, index in optionals" :key="index">
+                                <input class="form-check-input optional" type="checkbox" id="inlineCheckbox1" :value='optional.prezzo' >
                                 <label class="form-check-label" for="inlineCheckbox1">{{ optional.name }}</label>
                             </div>
+                            
                             <div class="py-3">
                                 <button @click="this.show_price = !this.show_price"  class='btn bg-yellow text-white me-2'>Calcola prezzo</button>
                                 <span v-if="this.show_price" class="yellow">PREZZO TOTALE: {{ TotalPrice() }}</span>
@@ -81,54 +78,6 @@ import axios from 'axios';
                 </div>
             </div>
         </div>
-    <!-- <div class="my-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-
-                    <h2 class="card-title m-2">{{ car.modello }}</h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>PREZZO BASE: {{ car.prezzo }}€</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>ALIMENTAZIONE: {{ car.alimentazione }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>ANNO: {{ car.anno }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>DESCRIZIONE: {{ car.descrizione }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>NUMERO TELAIO: {{ car.numero_telaio }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>TRAZIONE: {{ car.trazione }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>PORTE: {{ car.porte }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>CARROZZERIA: {{ car.carrozzeria }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>CAVALLI: {{ car.cavalli }}</h3>
-                        </li>
-                        <li class="list-group-item bg-info-subtle border border-2 border-info">
-                            <h3>CILINDRATA: {{ car.cilindrata }}</h3>
-                        </li>
-                    </ul>
-                    <div class="form-check form-check-inline" v-for="optional, index in optionals" :key="index">
-                        <input class="form-check-input optional" type="checkbox" id="inlineCheckbox1" :value= 'optional.prezzo' >
-                        <label class="form-check-label" for="inlineCheckbox1">{{ optional.name }}</label>
-                    </div>
-                    <button @click="this.show_price = !this.show_price">Calcola prezzo</button>
-                    <div v-if="this.show_price">PREZZO TOTALE: {{ TotalPrice() }}</div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </template>
 <style lang="scss" scoped>
     
@@ -154,6 +103,10 @@ import axios from 'axios';
     color:rgb( 173,134,71);
     
 }
+.bg-yellowW{
+
+    background-color: rgb(82, 82, 82);
+}
 .bg-yellow{
     
     background-color: rgb( 173,134,71);
@@ -164,4 +117,9 @@ import axios from 'axios';
 .decoration-none{
     text-decoration: none;
 }
+.bordi{
+    border-radius: 4px;
+    width: fit-content;
+}
+
 </style>
