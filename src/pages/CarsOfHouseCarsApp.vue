@@ -2,8 +2,16 @@
 <script>
 import {store} from '../store.js'
 import axios from 'axios';
+import CarCard from '../components/CarCard.vue';
+import AppLoader from '../components/AppLoader.vue';
+import NotFoundApp from './NotFoundApp.vue';
 export default {
     name:'CarsOfHouseCarCard',
+    components:{
+        CarCard,
+        AppLoader,
+        NotFoundApp
+    }, 
     data(){
         return{
             store,
@@ -17,6 +25,7 @@ export default {
         getCarsOfHouse(){
             axios.get(`${this.store.Url}api/car/carhouse/${this.$route.params.id}`).then((response)=>{
                  this.carsOfHouse=response.data.results
+                 store.loading=false
             })
         }
     },
@@ -24,13 +33,20 @@ export default {
 }
 </script>
 <template lang="">
-    {{$route.params.id}}
+    <!-- controllo del esistenza delle auto di una determinata casa automobilistica -->
     <div v-if="carsOfHouse.length != 0">
-        {{carsOfHouse}}
-        ciao
-    </div>
+         <AppLoader v-if="store.loading"/>
+            <div v-else> 
+                <div class="container">
+                    <div class='row'>
+                        <CarCard v-for="car, index in carsOfHouse" :key="index" :car="car"/>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <!-- se non esistono auto di quetsa categoria  -->
     <div v-if="carsOfHouse == 0">
-        nessun elemento trovato  
+        <NotFoundApp/>  
     </div>
 </template>
 <style lang="scss" scoped>

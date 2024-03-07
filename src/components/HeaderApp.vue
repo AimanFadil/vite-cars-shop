@@ -55,7 +55,7 @@ export default {
                             </router-link> 
                         </strong>
                       </li>
-                      <li class="d-flex">
+                      <!-- <li class="d-flex">
                         <div class="btn-group ">
                           <div class=" align-self-center dropdown-toggle gold_color" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                             <strong>Filtra per Marca</strong> 
@@ -66,7 +66,7 @@ export default {
                             </li>     
                           </ul>
                         </div>
-                      </li> 
+                      </li>  -->
                   </ul>
               </div>  
           </div>
