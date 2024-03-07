@@ -7,22 +7,15 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="container">
-        <div class="row d-flex">
+    <div class="container ">
+        <div class="row ">
             <div class="content">
-                <div class="card black text-white" style="display: contents;">
+                <div class="card black text-white" style="">
                     <img src="https://www.mercedes-benz.it/content/italy/it/passengercars/models/coupe/amg-gt-c192/overview/_jcr_content/root/responsivegrid/simple_stage_copy_co.component.damq1.3392150797189.jpg/mercedes-amg-gt-c192-stage-3840x3840-07-2023.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title yellowW">{{car.modello}}</h5>
-                      <!-- <p class="card-text yellow">Descrizione: <span class="text-white">{{car.descrizione}}</span></p> -->
                       <p class="card-text yellow">Prezzo: <span class="text-white">{{car.prezzo}}</span></p>
-                      <!-- <p class="card-text yellow">Alimentazione: <span class="text-white">{{car.alimentazione}}</span></p> -->
                       <p class="card-text yellow">Anno: <span class="text-white">{{car.anno}}</span></p>
-                      <!-- <p class="card-text yellow">Numero telaio: <span class="text-white">{{car.numero_telaio}}</span></p>
-                      <p class="card-text yellow">Porte: <span class="text-white">{{car.porte}}</span></p>
-                      <p class="card-text yellow">Carrozzeria: <span class="text-white">{{car.carrozzeria}}</span></p>
-                      <p class="card-text yellow">Cavalli: <span class="text-white">{{car.cavalli}}</span></p>
-                      <p class="card-text yellow">Cilindrata: <span class="text-white">{{car.cilindrata}}</span></p> -->
                       <router-link class='btn bg-yellow text-white' :to="{ name: 'single-car', params: {id: car.id} }">Seleziona la Macchina</router-link>
                     </div>
                 </div>
@@ -49,7 +42,7 @@ export default {
     }
     .content{
         border: 10px solid rgb(249, 203, 115);
-        display: flex;
+        width: fit-content;
         padding: 30px;
         margin: 30px;
         background-color: rgb(48, 46, 46);
