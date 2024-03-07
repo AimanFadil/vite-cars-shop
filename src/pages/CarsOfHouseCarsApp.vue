@@ -27,7 +27,14 @@ export default {
                  this.carsOfHouse=response.data.results
                  store.loading=false
             })
-        }
+        },
+        getCars(){
+                axios.get(`${this.store.Url}api/car/carhouse/${this.$route.params.id}`).then((response)=>{
+                 this.carsOfHouse=response.data.results
+                 this.arsOfHouse=[];
+                 store.loading=false
+            }) 
+            }
     },
     
 }
@@ -39,6 +46,11 @@ export default {
             <div v-else> 
                 <div class="container">
                     <div class='row'>
+                        <div class="col-12 d-flex justify-content-center transparent_" @click="getCars()"> 
+                            <span class="badge rounded-pill hover_color m-2 p-3 " v-for="CarHouse, index in store.houseCars" :key="index">
+                            <router-link :to="{ name: 'housecars-car', params: {id: CarHouse.id} }" class="dropdown-item gold_color hover_bg"> <strong>{{CarHouse.nome}}</strong></router-link>
+                            </span>
+                        </div>
                         <CarCard v-for="car, index in carsOfHouse" :key="index" :car="car"/>
                     </div>
                 </div>
@@ -51,5 +63,15 @@ export default {
 </template>
 <style lang="scss" scoped>
 @use '../styles/generals.scss' as*;
-    
+.transparent_{
+background-color: rgba(0, 0, 0, 0.32);
+}
+
+.hover_color{
+    color: white;
+    background-color: rgb(54, 54, 54);
+    &:hover{
+            color: rgb(173, 134, 71);
+    }
+}
 </style>
