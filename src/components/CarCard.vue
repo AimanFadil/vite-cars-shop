@@ -11,7 +11,7 @@ export default {
         <div class="row ">
             <div class="content">
                 <div class="card black text-white" style="">
-                    <img src="https://www.mercedes-benz.it/content/italy/it/passengercars/models/coupe/amg-gt-c192/overview/_jcr_content/root/responsivegrid/simple_stage_copy_co.component.damq1.3392150797189.jpg/mercedes-amg-gt-c192-stage-3840x3840-07-2023.jpg" class="card-img-top" alt="...">
+                    <img :src="car.image == null ? 'https://www.mercedes-benz.it/content/italy/it/passengercars/models/coupe/amg-gt-c192/overview/_jcr_content/root/responsivegrid/simple_stage_copy_co.component.damq1.3392150797189.jpg/mercedes-amg-gt-c192-stage-3840x3840-07-2023.jpg':`${store.Url}storage/${car.image}` " class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title yellowW">{{car.modello}}</h5>
                       <p class="card-text yellow">Prezzo: <span class="text-white">{{car.prezzo}}</span></p>
@@ -37,9 +37,6 @@ export default {
 </template>
 <style lang="scss" scoped>
 
-    .container{
-        background-image: url(https://cbx-prod.b-cdn.net/COLOURBOX58821536.jpg?width=800&height=800&quality=90);
-    }
     .content{
         border: 10px solid rgb(249, 203, 115);
         width: fit-content;
