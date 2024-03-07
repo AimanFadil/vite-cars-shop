@@ -3,7 +3,8 @@ import HomeApp from './pages/HomeApp.vue';
 import AppCars from './pages/AppCars.vue';
 import SingleCar from './pages/SingleCar.vue';
 import HouseCarsApp from './pages/HouseCarsApp.vue';
-// import CarsOfHouseCarsApp from './pages/CarsOfHouseCarsApp.vue';
+import CarsOfHouseCarsApp from './pages/CarsOfHouseCarsApp.vue';
+
 import NotFoundApp from './pages/NotFoundApp.vue'
 
 const router = createRouter({
@@ -30,11 +31,11 @@ const router = createRouter({
             name: 'housecars',
             component: HouseCarsApp,
         },
-        // {
-        //     path: '/housecars/:id',
-        //     name: 'housecars-car',
-        //     component: CarsOfHouseCarsApp
-        // },
+        {
+            path: '/housecars/:id',
+            name: 'housecars-car',
+            component: CarsOfHouseCarsApp
+        },
         {
             path: '/:pathMatch(.*)*',
             name: 'not-found',

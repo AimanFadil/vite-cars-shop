@@ -5,6 +5,7 @@ import {store} from '../store.js';
 import axios from 'axios';
 
     export default {
+        name: 'AppCars',
         components:{
         CarCard,
         AppLoader
@@ -29,18 +30,12 @@ import axios from 'axios';
     }
 </script>
 <template lang="">
+
     <AppLoader v-if="store.loading"/>
     <div v-else>
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="text-center my-3">
-                        Le nostre auto
-                    </div>
-                </div>
-                <div class='row'>
-                    <CarCard v-for="car, index in cars" :key="index" :car="car"/>
-                </div>
+            <div class='row'>
+                <CarCard v-for="car, index in cars" :key="index" :car="car"/>
             </div>
         </div>
     </div>

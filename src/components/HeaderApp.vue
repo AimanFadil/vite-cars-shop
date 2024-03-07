@@ -29,12 +29,11 @@ export default {
                       </li>
                       <li class="list-inline-item align-self-center gold_color mx-3">
                         <strong>
-<!--                             <router-link :to="{name:}"
+                          <router-link :to="{name: `cars`}"
                             class="gold_color  link-offset-2 link-underline link-underline-opacity-0">
-                                 Cars
-                            </router-link> -->
                             <i class="fa-solid fa-car" ></i>
                             Cars
+                          </router-link> 
                         </strong>
                       </li>
                       <li class="list-inline-item align-self-center gold_color mx-3">
